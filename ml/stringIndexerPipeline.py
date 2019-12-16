@@ -20,7 +20,7 @@ df = spark.createDataFrame(test_list, cSchema)
 
 cols = ['id', 'value']
 
-indexers = [StringIndexer(inputCol=column, outputCol=column + '_index', handleInvalid='skip').fit(df) for column in
+indexers = [StringIndexer(inputCol=column, outputCol=column + '_index', handleInvalid='skip') for column in
             list(set(df.columns) - set(cols))]
 
 pipeline = Pipeline(stages=indexers)
